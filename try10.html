@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortmyentries</title>
+    <link rel="stylesheet" href="try10.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="logo-container">
+            <img src="image/nobg.png" alt="Logo">
+            <h3>SORTMYENTRIES</h3>
+        </div>
+        <div class="right-container">
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="profile-menu">
+                <details id="profileDetails">
+                    <summary>
+                        <i class="fa fa-user"></i>
+                    </summary>
+                    <ul>
+                        <li>Profile</li>
+                        <li>Settings</li>
+                        <li>My Bookings</li>
+                    </ul>
+                </details>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <details id="hamburgerDetails">
+                    <summary>
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </summary>
+                    <ul>
+                        <li>Explore by city</li>
+                        <li>Clubs</li>
+                        <li>Concerts</li>
+                        <li>Dramas & Plays</li>
+                        <li>Movies</li>
+                        <li>Sports</li>
+
+                    </ul>
+                </details>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/V2.png" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="image/V3.png" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="image/V4.png" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="image/V5.png" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="image/V1.png" alt="Slide 3">
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot" onclick="showSlide(0)"></span>
+            <span class="dot" onclick="showSlide(1)"></span>
+            <span class="dot" onclick="showSlide(2)"></span>
+            <span class="dot" onclick="showSlide(3)"></span>
+            <span class="dot" onclick="showSlide(4)"></span>
+        </div>
+    </div>
+
+    <div class="naming">
+        <h2>Explore by Categories</h2>
+    </div>
+
+    <div class="container">
+        <div class="category-block">
+            <img src="image/D5.png" alt="Category 1">
+        </div>
+        <div class="category-block">
+            <img src="image/D1.png" alt="Category 1">
+        </div>
+        <div class="category-block">
+            <img src="image/D2.png" alt="Category 2">
+        </div>
+        <div class="category-block">
+            <img src="image/D3.png" alt="Category 3">
+        </div>
+        <div class="category-block">
+            <img src="image/D4.png" alt="Category 4">
+        </div>
+        <div class="category-block">
+            <img src="image/D6.png" alt="Category 5">
+        </div>
+        <div class="category-block">
+            <img src="image/D7.png" alt="Category 6">
+        </div>
+        <div class="category-block">
+            <img src="image/D8.png" alt="Category 1">
+        </div>
+        <div class="category-block">
+            <img src="image/D9.png" alt="Category 2">
+        </div>
+        <div class="category-block">
+            <img src="image/D12.png" alt="Category 3">
+        </div>
+        <div class="category-block">
+            <img src="image/D11.png" alt="Category 4">
+        </div>
+        <div class="category-block">
+            <img src="image/D10.png" alt="Category 1">
+        </div>
+    </div>
+
+    <div class="naming">
+        <h2>TOP RECOMMENDATION</h2>
+    </div>
+
+    <!--list of movie display-->
+    <div class="movie-list-wrapper">
+        <div class="movie-list">
+          <!-- Movie items go here -->
+          <div class="movie">
+            <img src="images/img.2.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 1</h2>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="images/img.1.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 2</h2>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="images/img.3.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 3</h2>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="images/img.4.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 4</h2>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="images/img.2.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 1</h2>
+              </div>
+          </div>
+          <div class="movie">
+            <img src="images/img.1.avif" alt="Movie Poster">
+            <div class="movie-details">
+              <h2 class="movie-title">Movie Title 2</h2>
+              </div>
+          </div>
+          <div class="movie">
+              <img src="images/img.3.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 1</h2>
+                </div>
+            </div>
+            <div class="movie">
+              <img src="images/img.4.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 2</h2>
+              </div>
+            </div>
+            <div class="movie">
+              <img src="images/img.5.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 1</h2>
+              </div>
+            </div>
+            
+            <div class="movie">
+              <img src="images/img.6.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 2</h2></div>
+            </div>
+            <div class="movie">
+              <img src="images/img.7.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 1</h2>
+              </div>
+            </div>
+            
+            <div class="movie">
+              <img src="images/img.8.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 2</h2>
+              </div>
+            </div><div class="movie">
+              <img src="images/img.2.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 1</h2>
+                </div>
+            </div>
+            <div class="movie">
+              <img src="images/img.1.avif" alt="Movie Poster">
+              <div class="movie-details">
+                <h2 class="movie-title">Movie Title 2</h2>
+                </div>
+            </div>
+            <div class="movie">
+                <img src="images/img.3.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 1</h2>
+                  </div>
+              </div>
+              <div class="movie">
+                <img src="images/img.4.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 2</h2>
+                </div>
+              </div>
+              <div class="movie">
+                <img src="images/img.5.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 1</h2>
+                </div>
+              </div>
+              
+              <div class="movie">
+                <img src="images/img.6.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 2</h2></div>
+              </div>
+              <div class="movie">
+                <img src="images/img.7.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 1</h2>
+                </div>
+              </div>
+              
+              <div class="movie">
+                <img src="images/img.8.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 2</h2>
+                </div>
+              </div><div class="movie">
+                <img src="images/img.2.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 1</h2>
+                  </div>
+              </div>
+              <div class="movie">
+                <img src="images/img.1.avif" alt="Movie Poster">
+                <div class="movie-details">
+                  <h2 class="movie-title">Movie Title 2</h2>
+                  </div>
+              </div>
+              <div class="movie">
+                  <img src="images/img.3.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 1</h2>
+                    </div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.4.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 2</h2>
+                  </div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.5.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 1</h2>
+                  </div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.6.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 2</h2></div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.7.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 1</h2>
+                  </div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.8.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 2</h2>
+                  </div>
+                </div><div class="movie">
+                  <img src="images/img.2.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 1</h2>
+                    </div>
+                </div>
+                <div class="movie">
+                  <img src="images/img.1.avif" alt="Movie Poster">
+                  <div class="movie-details">
+                    <h2 class="movie-title">Movie Title 2</h2>
+                    </div>
+                </div>
+                <div class="movie">
+                    <img src="images/img.3.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 1</h2>
+                      </div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.4.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 2</h2>
+                    </div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.5.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 1</h2>
+                    </div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.6.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 2</h2></div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.7.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 1</h2>
+                    </div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.8.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 2</h2>
+                    </div>
+                  </div><div class="movie">
+                    <img src="images/img.2.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 1</h2>
+                      </div>
+                  </div>
+                  <div class="movie">
+                    <img src="images/img.1.avif" alt="Movie Poster">
+                    <div class="movie-details">
+                      <h2 class="movie-title">Movie Title 2</h2>
+                      </div>
+                  </div>
+                  <div class="movie">
+                      <img src="images/img.3.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 1</h2>
+                        </div>
+                    </div>
+                    <div class="movie">
+                      <img src="images/img.4.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 2</h2>
+                      </div>
+                    </div>
+                    <div class="movie">
+                      <img src="images/img.5.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 1</h2>
+                      </div>
+                    </div>
+                    <div class="movie">
+                      <img src="images/img.6.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 2</h2></div>
+                    </div>
+                    <div class="movie">
+                      <img src="images/img.7.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 1</h2>
+                      </div>
+                    </div>
+                    <div class="movie">
+                      <img src="images/img.8.avif" alt="Movie Poster">
+                      <div class="movie-details">
+                        <h2 class="movie-title">Movie Title 2</h2>
+                      </div>
+                    </div>
+          <!-- More movie items -->
+        </div>
+        <button id="see-more-button">See More</button>
+      </div>
+
+    <div class="naming">
+        <h2>Concerts</h2>
+    </div>
+    
+    <!--list of movie display-->
+    <div class="concert-list-wrapper">
+      <div class="concert-list">
+        <!-- Concert items go here -->
+        <div class="concert">
+          <img src="images/img.2.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.1.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.3.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 3</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.4.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 4</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.2.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.1.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.3.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.4.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.5.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.6.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.7.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.8.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.2.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.1.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.3.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.4.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.5.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.6.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.7.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.8.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.2.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.1.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.3.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.4.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.5.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.6.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.7.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 1</h2>
+          </div>
+        </div>
+        <div class="concert">
+          <img src="images/img.8.avif" alt="Concert Poster">
+          <div class="concert-details">
+            <h2 class="concert-title">Concert Title 2</h2>
+          </div>
+        </div>
+      <!-- More concert items -->
+    </div>
+    <button id="see-more-concert-button">See More</button>
+    </div>
+      </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <h1>SORTMYENTRIES</h1>
+                <p>Subscribe to our newsletter for the latest event updates!</p>
+                <div class="newsletter">
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">List my Event</a>
+                    <a href="#">Refunds & Cancellations</a>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="try10.js"></script>
+</body>
+</html>
