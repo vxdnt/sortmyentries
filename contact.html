@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact and Submit a Query Form</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <div class="container" id="container">
+            <div class="form-container contact-container">
+                <form action="#">
+                    <h1>Contact Us</h1>
+                    <p>Email : sortmyentrieshq@gmail.com <br> Contact : +91 7715039001 <br> Address : Lower Parel, Mumbai, Maharashtra, India - 400013</p>
+                </form>
+            </div>
+            <div class="form-container query-container">
+                <form action="#">
+                    <h1>Submit a Query</h1>
+                    <div class="form-group">
+                        <label for="query-name">Name:<span class="required">*</span></label>
+                        <input type="text" id="query-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="query-email">Email:<span class="required">*</span></label>
+                        <input type="email" id="query-email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="query-topic">Query Type:<span class="required">*</span></label>
+                        <select id="query-topic" required>
+                            <option value="" disabled selected>Select type of query</option>
+                            <option value="user-query">User Query</option>
+                            <option value="business-query">Business Query</option>
+                            <option value="customer-query">Customer Query</option>
+                            <option value="general-feedback">General Query/Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="query-details">Message:<span class="required">*</span></label>
+                        <textarea id="query-details" required></textarea>
+                    </div>
+                    <button type="submit">Submit Query</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1> Want to Get in Touch!</h1>
+                        <button class="ghost" id="contactUs">Contact Us</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello!</h1>
+                        <p>Have any problem ? Submit your query here.</p>
+                        <button class="ghost" id="submitQuery">Submit Query</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="contact.js" defer></script>
+    <script src="header_and_footer.js"></script>
+</body>
+</html>
+
