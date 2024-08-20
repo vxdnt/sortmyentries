@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact and Submit a Query Form</title>
+    <title>Contact @sortmyentries</title>
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-    <div id="header-container"></div>
     <main>
         <div class="container" id="container">
             <div class="form-container contact-container">
@@ -22,12 +21,8 @@
                     <div class="form-group">
                         <label for="query-name">Name:<span class="required">*</span></label>
                         <input type="text" id="query-name" required />
-                    </div>
-                    <div class="form-group">
                         <label for="query-email">Email:<span class="required">*</span></label>
                         <input type="email" id="query-email" required />
-                    </div>
-                    <div class="form-group">
                         <label for="query-topic">Query Type:<span class="required">*</span></label>
                         <select id="query-topic" required>
                             <option value="" disabled selected>Select type of query</option>
@@ -36,8 +31,6 @@
                             <option value="customer-query">Customer Query</option>
                             <option value="general-feedback">General Query/Feedback</option>
                         </select>
-                    </div>
-                    <div class="form-group">
                         <label for="query-details">Message:<span class="required">*</span></label>
                         <textarea id="query-details" required></textarea>
                     </div>
@@ -60,7 +53,6 @@
         </div>
     </main>
     <script src="contact.js" defer></script>
-    <script src="header_and_footer.js"></script>
 </body>
 </html>
 
