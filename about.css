@@ -1,4 +1,155 @@
-/* General container styling */
+*{
+    margin: 0;
+    font-family: 'Lilita One', sans-serif;
+    font-weight: 300;
+}
+
+.retro-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.logo-container h1 {
+    color: #333;
+    text-align: justify;
+}
+
+.search-box {
+    display: flex;
+    width: 700px;
+    border: 3px solid #333;
+    border-radius: 25px;
+    background-color: #ececec;
+    align-items: center; /* Center align items vertically */
+}
+
+.search-box input {
+    width: 100%; /* Take up remaining space */
+    padding: 12px;
+    border: none;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: #333;
+    outline: none;
+    border-radius: 25px 0 0 25px; /* Rounded corners on left side */
+}
+
+.search-box input::placeholder {
+    color: #333;
+}
+
+.search-box button {
+    padding: 12px; /* Adjust padding as needed */
+    border: none;
+    background-color: #ececec;
+    color: #333; /* Adjust color to ensure visibility */
+    cursor: pointer;
+    border-radius: 0 25px 25px 0; /* Rounded corners on right side */
+    display: flex; /* Use flex to center the icon */
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box button i {
+    font-size: 1.2rem; /* Adjust size of the icon */
+    background-color: #ececec;
+}
+
+.main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align all items horizontally */
+}
+
+.main-menu ul {
+    display: flex;
+    gap: 20px; /* Space between menu items */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style: none; /* Remove default list styling */
+}
+
+.main-menu ul li {
+    display: inline; /* Ensure list items are displayed inline */
+}
+
+.main-menu ul li a {
+    color: #000000;
+    font-size: 1rem;
+    padding: 10px 15px; /* Adjust padding for better alignment */
+    border: 4px solid #000000;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex; /* Flex to center text inside the link */
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-about {
+    background-color: #d6baba; /* Example color for About */
+}
+
+.menu-events {
+    background-color: #2a9d8f; /* Example color for Events */
+}
+
+.menu-services {
+    background-color: #e76f51; /* Example color for Services */
+}
+
+.menu-contact {
+    background-color: #55a974; /* Example color for Contact */
+}
+
+.main-menu ul li a:hover {
+    color: #ffffff;
+    background-color: #d6baba;
+}
+
+.main-menu button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 4px solid #000000;
+    background-color: #8899bd; /* Match background to other menu items */
+    color: #000000; /* Adjust color as needed */
+    cursor: pointer;
+    border-radius: 20px; /* Match the border-radius of the menu items */
+    font-size: 1.2rem; /* Ensure icon size is consistent */
+    margin: 0; /* Remove margin to prevent extra gap */
+}
+
+.main-menu button i {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    margin: 0; /* Remove default margin */
+}
+
+.main-menu button:hover {
+    color: #fff;
+    background-color: #d6baba; /* Match hover color with menu items */
+}
+
+.middle{
+    justify-content: center;
+    font-size: 4vw;
+}
+
 .about-container {
     display: flex;
     flex-direction: column;
@@ -6,7 +157,6 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    
 }
 
 /* General box styling */
