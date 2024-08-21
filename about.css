@@ -1,0 +1,80 @@
+/* General container styling */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+/* General box styling */
+.about-box {
+    padding: 20px;
+    border-radius: 0; /* No rounded corners for square look */
+    color: #fff;
+    border: 2px solid #000;
+    background-color: #1a1a1a; /* Default dark background */
+    box-shadow: 10px 10px 0px #333; /* Strong retro shadow */
+}
+
+/* Individual box colors */
+#welcome {
+    background-color: #ff6f61; /* Retro red */
+}
+
+#who-we-are {
+    background-color: #f0a500; /* Retro yellow */
+}
+
+#vision {
+    background-color: #008080; /* Retro teal */
+}
+
+#what-we-do {
+    background-color: #663399; /* Retro purple */
+}
+
+#values {
+    background-color: #ff8c00; /* Retro orange */
+}
+
+#join-us {
+    background-color: #2e8b57; /* Retro green */
+}
+
+#Thank-You {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Heading styling */
+h1, h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Paragraph and list styling */
+p, ul {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* List styling */
+ul {
+    padding-left: 20px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .about-container {
+        padding: 10px;
+    }
+
+    .about-box {
+        padding: 15px;
+        box-shadow: 5px 5px 0px #333; /* Adjusted shadow for smaller screens */
+    }
+}
