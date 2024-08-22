@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+    <header class="retro-header">
+        <div class="logo-container">
+            <img src="images/nobg.png" alt="Logo" class="logo">
+            <h2>Sortmyentries</h2>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Explore events">
+            <button type="button"><i class="fas fa-search"></i></button>
+        </div>        
+        <nav class="main-menu">
+            <ul>
+                <button type="button" onclick="window.location.href='http://vxdnt.github.io/sortmyentries">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <li><a href="about.html" class="menu-about">About</a></li>
+                <li><a href="#events" class="menu-events">Events</a></li>
+                <li><a href="#services" class="menu-services">Services</a></li>
+                <li><a href="contact.html" class="menu-contact">Contact</a></li>
+                <button type="button"><i class="fa-solid fa-user"></i></button>
+            </ul>
+        </nav>
+    </header>
     <main>
         <div class="container" id="container">
             <div class="form-container contact-container">
@@ -52,6 +74,30 @@
             </div>
         </div>
     </main>
+    <footer class="retro-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/nobg.png" alt="Logo">
+            </div>
+            <div class="footer-menu">
+                <a href="about.html">About Us</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#contact">Careers</a>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Sortmyentries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
     <script src="contact.js" defer></script>
 </body>
 </html>
