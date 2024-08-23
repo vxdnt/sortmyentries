@@ -27,3 +27,14 @@ let slideIndex = 0;
     document.querySelector('.next').addEventListener('click', () => {
         showSlides();
     });
+
+// JavaScript to handle opening and closing the modal
+document.getElementById('contactTab').addEventListener('click', function() {
+    document.getElementById('contactModal').classList.add('active');
+    document.body.classList.add('modal-open');
+});
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('contactModal').classList.remove('active');
+    document.body.classList.remove('modal-open');
+});
