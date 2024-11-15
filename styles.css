@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif; /* Or you can use 'Roboto' */
+    font-size: 16px; /* Base font size for the body */
+    line-height: 1.5; /* Makes text easier to read */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.left-column {
+    width: 12%;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Center the items horizontally */
+    margin-bottom: 20px; /* Adjust space below the logo-text section */
+}
+
+.logo {
+    width: 20%; /* Adjust logo width as necessary */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.left-column h2 {
+    font-size: 16px;
+}
+
+#categories {
+    list-style-type: none;
+    padding: 0;
+}
+
+#categories li {
+    margin: 10px 0;
+}
+
+#categories button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#categories button:hover {
+    background-color: #111111;
+}
+
+/* Right Column Styling */
+.right-column {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Header Section Styling (with "Events We Have" on the left and search bar on the right) */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;  /* Space between header and events list */
+}
+
+.events-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Glass Effect Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 200px;
+    position: relative;
+}
+
+/* Input Styling */
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #000000; /* Underline effect */
+    font-size: 14px;
+    width: 100%;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #2870a7; /* Green color when focused */
+}
+
+#events-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.event-card {
+    width: 170px; /* Increase the width slightly for larger images */
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.event-image {
+    width: 100%; /* Ensure the image spans the full width of the card */
+    height: 200px; /* Increase the height */
+    object-fit: cover; /* Ensures the image doesn't stretch and retains its aspect ratio */
+    border-radius: 4px;
+}
+
+.event-card h3 {
+    margin-top: 0px; /* Reduce the space between the title and the date */
+}
+
+.event-card p {
+    margin-top: -10px; /* Reduce space above the date */
+}
+

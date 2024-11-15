@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Ticket Booking Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="logo-container">
+                <img src="images/WhatsApp Image 2024-11-02 at 16.17.19_397973dd.jpg" alt="Sortmyentries Logo" class="logo">
+                <h2>SORTMYENTRIES</h2>
+            </div>
+
+            <ul id="categories">
+                <li><button onclick="loadEvents('concert')">Concerts</button></li>
+                <li><button onclick="loadEvents('sports')">Sports</button></li>
+                <li><button onclick="loadEvents('theater')">Theater</button></li>
+                <li><button onclick="loadEvents('festivals')">Festivals</button></li>
+                <li><button onclick="loadEvents('clubs')">Clubs</button></li>
+            </ul>
+
+            <!-- Additional options -->
+            <ul id="categories">
+                <li><button onclick="loadSettings()">Settings</button></li>
+                <li><button onclick="showTerms()">Terms and Conditions</button></li>
+                <li><button onclick="listEvent()">List My Event</button></li>
+                <li><button onclick="raiseQuery()">Raise a Query</button></li>
+                <li><button onclick="Bookinghistory()">My Bookings</button></li>
+                <li><button onclick="myprofile()">My Profile</button></li>
+                <li><button onclick="myprofile()">About Us</button></li>
+                <li><button onclick="Bookinghistory()">Promote Events</button></li>
+            </ul>
+        </div>
+
+        <!-- Right Column -->
+         <div class="right-column">
+
+            <div class="header-section">
+                <h2 class="events-header">ENJOY YOUR LIFE SOMETIMES!!</h2>
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Search events..." onkeyup="filterEvents()">
+                </div>
+            </div>
+            
+
+            <div id="events-list">
+                <!-- Event details will be dynamically loaded here -->
+            </div>
+
+            <!-- Event Details Box -->
+            <div id="event-details">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
