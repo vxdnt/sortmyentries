@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Visualization & Content Choices:
+- Market Size/Growth: Goal=Inform -> Big Numbers & Line Chart (Chart.js) for impact and trend visualization.
+- Segment CAGR: Goal=Compare -> Bar Chart (Chart.js) for direct, stark comparison of sports vs. movies.
+- Market Drivers: Goal=Inform -> Icon-based cards (Unicode characters) for quick, scannable key metrics.
+- Market Share: Goal=Compare -> Donut Chart (Chart.js) to clearly show the duopoly composition.
+- Consumer Discovery: Goal=Compare/Rank -> Horizontal Bar Chart (Chart.js) for easy ranking of channels.
+- Revenue Strategy: Goal=Organize/Process -> HTML/CSS Flowchart to visually represent the interconnected revenue streams without using SVG/Mermaid.
+- Other sections use styled lists and cards for clear, textual information presentation.
+-->
+<title>Interactive Report: India's Online Ticketing Market</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f8f7f4;
+color: #3f3c3a;
+}
+.card {
+background-color: #ffffff;
+border-radius: 0.75rem;
+box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+padding: 1.5rem;
+transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.chart-container {
+position: relative;
+margin: auto;
+height: 350px;
+max-height: 400px;
+width: 100%;
+max-width: 600px;
+}
+.nav-link {
+padding: 8px 16px;
+border-radius: 9999px;
+transition: background-color 0.3s, color 0.3s;
+cursor: pointer;
+}
+.nav-link.active, .nav-link:hover {
+background-color: #005DAA;
+color: #ffffff;
+}
+.flow-node {
+border: 2px solid #e2e8f0;
+background-color: #f7fafc;
+color: #2d3748;
+}
+.flow-line {
+background-color: #cbd5e1;
+position: absolute;
+z-index: 0;
+}
+</style>
+</head>
+<body class="antialiased">
+
+<nav class="sticky top-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-center py-3 overflow-x-auto">
+            <div class="flex items-center space-x-2 md:space-x-4 text-sm font-medium text-gray-600 whitespace-nowrap">
+                <a href="#opportunity" class="nav-link active">Opportunity</a>
+                <a href="#drivers" class="nav-link">Market Drivers</a>
+                <a href="#competition" class="nav-link">Competition</a>
+                <a href="#consumer" class="nav-link">The Consumer</a>
+                <a href="#strategy" class="nav-link">Success Strategy</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container mx-auto p-4 md:p-8">
+
+    <header class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#005DAA] mb-3">India's Digital Ticketing Gold Rush</h1>
+        <p class="text-lg text-[#3f3c3a] max-w-4xl mx-auto">An interactive strategic assessment of India's booming online event ticketing market, synthesizing key data for prospective market entrants.</p>
+    </header>
+
+    <section id="opportunity" class="scroll-mt-24 mb-20">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">The Scale of the Opportunity</h2>
+            <p class="mt-2 text-gray-600 max-w-3xl mx-auto">The market is not just growing; it's accelerating. Fueled by a digital-first population, the Indian online ticketing landscape offers a clear path for significant returns on investment.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center mb-10">
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Market Size (2024)</h3>
+                <p class="text-5xl font-bold text-[#F47B20]">USD 3.31B</p>
+            </div>
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Forecast (2033)</h3>
+                <p class="text-5xl font-bold text-[#7DBA44]">USD 7.10B</p>
+            </div>
+            <div class="card md:col-span-2 lg:col-span-1">
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Overall Market CAGR</h3>
+                <p class="text-5xl font-bold text-[#00A9E0]">8.90%</p>
+            </div>
+        </div>
+
+        <div class="card md:col-span-3">
+            <h3 class="text-xl font-bold text-center mb-2">Growth Hotspots: Where to Play</h3>
+            <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">While the overall market is attractive, a deeper look reveals where the most aggressive growth lies. The sports segment is dramatically outpacing the more saturated movie market, presenting a clear strategic entry point.</p>
+            <div class="chart-container">
+                <canvas id="cagrComparisonChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="drivers" class="scroll-mt-24 mb-20">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">The Engines of Growth</h2>
+            <p class="mt-2 text-gray-600 max-w-3xl mx-auto">Three foundational pillars of India's digital revolution are supercharging the shift from offline queues to online clicks.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="card">
+                <span class="text-5xl">📱</span>
+                <h3 class="text-xl font-semibold mt-4 mb-2">Digital & Mobile Reach</h3>
+                <p class="text-4xl font-bold text-[#005DAA]">954M</p>
+                <p class="text-gray-500">Internet Users</p>
+                <p class="text-3xl font-bold text-[#005DAA] mt-3">659M</p>
+                <p class="text-gray-500">Smartphone Users</p>
+            </div>
+            <div class="card">
+                <span class="text-5xl">💳</span>
+                <h3 class="text-xl font-semibold mt-4 mb-2">UPI Payment Surge</h3>
+                <p class="text-4xl font-bold text-[#F47B20]">129%</p>
+                <p class="text-gray-500">CAGR in UPI Transactions<br>(FY18-FY24)</p>
+            </div>
+            <div class="card">
+                <span class="text-5xl">🎉</span>
+                <h3 class="text-xl font-semibold mt-4 mb-2">Demand for Live Events</h3>
+                <p class="text-4xl font-bold text-[#7DBA44]">13.5M</p>
+                <p class="text-gray-500">Attendees for Major Events (BMS, 2023)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="competition" class="scroll-mt-24 mb-20">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">The Competitive Arena</h2>
+            <p class="mt-2 text-gray-600 max-w-3xl mx-auto">The market is dominated by a duopoly, but recent acquisitions by "super-apps" like Zomato and Swiggy are reshaping the battlefield, moving from pure-play ticketing to integrated lifestyle ecosystems.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="text-xl font-bold text-center mb-4">Live Events Market Share (FY23)</h3>
+                <p class="text-center text-gray-600 mb-6">The live events space is a tight race, with BookMyShow and Paytm Insider (now part of Zomato's "District") commanding nearly the entire market.</p>
+                <div class="chart-container">
+                    <canvas id="marketShareChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-bold text-center mb-4">Key Player Strategies</h3>
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex items-start">
+                        <span class="font-bold text-lg text-[#005DAA] mr-3 mt-1">●</span>
+                        <div><strong class="font-semibold text-gray-900">BookMyShow:</strong> The Incumbent. Leverages alleged exclusive contracts and dynamic pricing as a competitive moat.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-bold text-lg text-[#F47B20] mr-3 mt-1">●</span>
+                        <div><strong class="font-semibold text-gray-900">Zomato (District):</strong> The Acquirer. Integrating Paytm Insider to build a "going-out" super-app, cross-selling with dining.</div>
+                    </li>
+                     <li class="flex items-start">
+                        <span class="font-bold text-lg text-[#7DBA44] mr-3 mt-1">●</span>
+                        <div><strong class="font-semibold text-gray-900">Swiggy (Scenes):</strong> The New Giant. Leveraging its massive food delivery user base to enter the event space via its Dineout offering.</div>
+                    </li>
+                     <li class="flex items-start">
+                         <span class="font-bold text-lg text-[#00A9E0] mr-3 mt-1">●</span>
+                        <div><strong class="font-semibold text-gray-900">Niche Disruptors:</strong> Platforms like Tickets99 (zero booking fees) and Townscript (DIY events) are chipping away at the edges with focused value propositions.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="consumer" class="scroll-mt-24 mb-20">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">Decoding the Indian Ticket Buyer</h2>
+            <p class="mt-2 text-gray-600 max-w-3xl mx-auto">The target audience is young, digital-native, and price-sensitive. Understanding their discovery process and purchase motivations is critical to building a successful platform.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div class="card lg:col-span-3">
+                <h3 class="text-xl font-bold text-center mb-4">How Gen Z Discovers Events</h3>
+                <p class="text-center text-gray-600 mb-6">Social media is the dominant discovery channel, but word-of-mouth and direct platform visits remain highly influential. A multi-channel approach is key.</p>
+                <div class="chart-container">
+                    <canvas id="discoveryChannelsChart"></canvas>
+                </div>
+            </div>
+            <div class="card lg:col-span-2">
+                <h3 class="text-xl font-bold text-center mb-4">Key Purchase Drivers</h3>
+                <div class="space-y-6 flex flex-col justify-around h-full pt-6">
+                   <div class="text-center">
+                      <p class="text-5xl font-bold text-[#F47B20]">60%</p>
+                      <p class="font-semibold text-lg mt-1">Are Deterred by High Prices</p>
+                      <p class="text-gray-500 text-sm">Value for money is a primary concern.</p>
+                   </div>
+                    <div class="text-center">
+                      <p class="text-5xl font-bold text-[#7DBA44]">77%</p>
+                      <p class="font-semibold text-lg mt-1">Prefer Personalization</p>
+                      <p class="text-gray-500 text-sm">Users expect tailored recommendations.</p>
+                   </div>
+                   <div class="text-center">
+                      <p class="text-4xl font-bold text-[#00A9E0]">FOMO</p>
+                      <p class="font-semibold text-lg mt-1">Fear of Missing Out</p>
+                      <p class="text-gray-500 text-sm">Urgency and social proof are powerful motivators.</p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="strategy" class="scroll-mt-24 mb-20">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">The Blueprint for a Winning Marketplace</h2>
+            <p class="mt-2 text-gray-600 max-w-3xl mx-auto">To compete, a new entrant cannot rely on ticket sales alone. A diversified strategy focused on value-added services for organizers and multiple revenue streams is essential for sustainable growth.</p>
+        </div>
+        <div class="card">
+            <h3 class="text-xl font-bold text-center mb-8">A Diversified Value & Revenue Ecosystem</h3>
+            <div class="relative flex flex-col items-center">
+                <div class="flow-node w-56 p-4 rounded-lg shadow-lg bg-[#005DAA] text-white z-10">
+                    <h4 class="font-bold text-lg">New Marketplace Platform</h4>
+                </div>
+
+                <div class="flow-line w-px h-16" style="background-color: #94a3b8;"></div>
+
+                <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 relative pt-16">
+                    <div class="flow-line hidden md:block" style="top: 0; left: 0; width: 100%; height: 2px;"></div>
+                    <div class="flow-line hidden md:block" style="top: 0; left: 50%; width: 2px; height: 4rem;"></div>
+
+                    <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: 0; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                           <h4 class="font-semibold text-base">Core Ticketing Revenue</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Convenience fees (buyers) & Commissions (organizers).</p>
+                    </div>
+                    <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: 0; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                           <h4 class="font-semibold text-base">Advertising & Promotions</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Premium listings for events and targeted brand ads.</p>
+                    </div>
+                     <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: 0; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                           <h4 class="font-semibold text-base">Value-Add for Organizers</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">EMPaaS: Analytics, marketing, & CRM tools as a service.</p>
+                    </div>
+                     <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: -4rem; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                           <h4 class="font-semibold text-base">Strategic Partnerships</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Affiliate revenue from F&B, merchandise, and local vendors.</p>
+                    </div>
+                     <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: -4rem; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                            <h4 class="font-semibold text-base">Consumer Subscriptions</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Loyalty programs for frequent buyers with exclusive perks.</p>
+                    </div>
+                    <div class="relative flex flex-col items-center">
+                         <div class="flow-line hidden md:block" style="top: -4rem; left: 50%; width: 2px; height: 4rem;"></div>
+                        <div class="flow-node p-3 rounded-lg w-full text-center z-10">
+                            <h4 class="font-semibold text-base">Corporate Solutions</h4>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Bulk ticketing and exclusive packages for businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center mt-20 pt-8 border-t border-gray-200">
+        <p class="text-gray-600">This interactive application synthesizes data from the "Strategic Assessment: Building an Online Event Ticketing Marketplace in India" report.</p>
+        <p class="text-sm text-gray-400 mt-2">All data is based on the provided source material. Application generated on June 3, 2025.</p>
+    </footer>
+
+</main>
+
+<script>
+    function wrapLabel(label, maxLength) {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + ' ' + word).trim().length > maxLength) {
+                if (currentLine.length > 0) lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        });
+        if (currentLine) lines.push(currentLine);
+        return lines;
+    }
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        if (!item) return '';
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+
+    const chartDefaultOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: '#3f3c3a',
+                    font: { family: "'Inter', sans-serif", size: 12 }
+                }
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(0,0,0,0.8)',
+                titleFont: { family: "'Inter', sans-serif", weight: 'bold' },
+                bodyFont: { family: "'Inter', sans-serif" },
+                callbacks: { title: tooltipTitleCallback }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#3f3c3a', font: { family: "'Inter', sans-serif" } },
+                grid: { display: false }
+            },
+            y: {
+                ticks: { color: '#3f3c3a', font: { family: "'Inter', sans-serif" } },
+                grid: { color: '#e2e8f0' },
+                beginAtZero: true
+            }
+        }
+    };
+
+    const cagrData = {
+        labels: [wrapLabel('Sports Events Tickets', 16), wrapLabel('Online Movie Ticketing Services', 16)],
+        datasets: [{
+            label: 'CAGR %',
+            data: [18.2, 5.22],
+            backgroundColor: ['#F47B20', '#005DAA'],
+            borderColor: ['#F47B20', '#005DAA'],
+            borderWidth: 1,
+            barThickness: 50,
+        }]
+    };
+    new Chart(document.getElementById('cagrComparisonChart').getContext('2d'), {
+        type: 'bar',
+        data: cagrData,
+        options: { ...chartDefaultOptions,
+            plugins: { ...chartDefaultOptions.plugins, legend: { display: false } },
+            scales: { ...chartDefaultOptions.scales, y: { ...chartDefaultOptions.scales.y, title: { display: true, text: 'CAGR %' } } }
+        }
+    });
+
+    const marketShareData = {
+        labels: ['BookMyShow', 'Paytm Insider (now Zomato)'],
+        datasets: [{
+            data: [55.24, 44.76],
+            backgroundColor: ['#005DAA', '#F47B20'],
+            borderColor: '#ffffff',
+            borderWidth: 4,
+        }]
+    };
+    new Chart(document.getElementById('marketShareChart').getContext('2d'), {
+        type: 'doughnut',
+        data: marketShareData,
+        options: { ...chartDefaultOptions, cutout: '65%' }
+    });
+
+    const discoveryData = {
+        labels: ['Social Media', wrapLabel('Friends\' Recommendations', 16), wrapLabel('Ticket Websites / Apps', 16)],
+        datasets: [{
+            label: '% of Gen Z Users',
+            data: [73, 60, 57],
+            backgroundColor: ['#00A9E0', '#7DBA44', '#F47B20'],
+        }]
+    };
+    new Chart(document.getElementById('discoveryChannelsChart').getContext('2d'), {
+        type: 'bar',
+        data: discoveryData,
+        options: { ...chartDefaultOptions,
+            indexAxis: 'y',
+            plugins: { ...chartDefaultOptions.plugins, legend: { display: false } },
+            scales: {
+                x: { ...chartDefaultOptions.scales.x, title: { display: true, text: '% of Users' } },
+                y: { ...chartDefaultOptions.scales.y, grid: { display: false } }
+            }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-30% 0px -70% 0px', threshold: 0 });
+
+        sections.forEach(section => observer.observe(section));
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
